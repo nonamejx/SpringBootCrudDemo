@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SpringCrudDemo</title>
+</head>
+<body>
+    <h1>Users </h1>
+    <div>
+        <form action="/users/add" method="post">
+            <input type="text" name="username" />
+            <input type="text" name="password" />
+            <input type="submit" value="Add"/>
+        </form>
+    </div>
+
+    <br/>
+    <div>
+        <ul th:each="user : ${users}">
+            <li th:text="${user.toString()}"></li>
+            <a th:href="@{'/users/update/' + ${user.getId()}}">Edit</a>
+            <a th:href="@{'/users/remove/' + ${user.getId()}}">Delete</a>
+        </ul>
+    </div>
+</body>
+</html>
