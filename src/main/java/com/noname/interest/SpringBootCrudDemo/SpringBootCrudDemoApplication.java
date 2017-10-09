@@ -1,6 +1,5 @@
 package com.noname.interest.SpringBootCrudDemo;
 
-import com.noname.interest.SpringBootCrudDemo.model.User;
 import com.noname.interest.SpringBootCrudDemo.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +20,7 @@ public class SpringBootCrudDemoApplication {
 	@Bean
 	public CommandLineRunner demo(UserRepository repository) {
 		return (args) -> {
-			for (User u : repository.findAll()) {
-				log.error(u.toString());
-			}
+			repository.findAll().forEach((user) -> {log.error(user.toString());});
 		};
 	}
 }

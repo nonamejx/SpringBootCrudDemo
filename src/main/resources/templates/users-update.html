@@ -4,6 +4,7 @@
     <title>SpringCrudDemo</title>
 </head>
 <body>
+    <div th:replace="fragments/header"></div>
     <h1>Update</h1>
     <div>
         <form action="/users/update" method="post" th:value="${user}">
